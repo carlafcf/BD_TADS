@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar produto</title>
+</head>
+<body>
+    {% if object_list %}
+        <ul>
+            {% for produto in object_list %}
+                <li>
+                    {{ produto.nome }} - {{ produto.fornecedor }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Não há produtos cadastrados.</p>
+    {% endif %}
+
+</body>
+</html>
