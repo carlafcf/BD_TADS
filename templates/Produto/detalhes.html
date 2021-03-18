@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Detalhes do produto
+{% endblock %}
+
+{% block titulo_pagina %}
+Detalhes
+{% endblock %}
+
+{% block conteudo %}
+    <p><strong>Nome:</strong> {{produto.nome}}</p>
+    <p>Descrição: {{produto.descricao}}</p>
+    <p>Fornecedor: {{produto.fornecedor}}</p>
+    <p>Quantidade máxima: {{produto.quantidade_maxima}}</p>
+    <p>Valor unitário: {{produto.valor_unitario}}</p>
+    <p>Licitacao: {{licitacao.orgao}} - {{licitacao.no_arp}}</p>
+    <p>Número do item: {{produto.no_item}}</p>
+{% endblock %}

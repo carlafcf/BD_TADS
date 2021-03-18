@@ -1,23 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listar produto</title>
-</head>
-<body>
-    {% if produtos %}
-        <ul>
-            {% for produto in produtos %}
-                <li>
-                    {{ produto.nome }} - {{ produto.fornecedor }}
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>Não há produtos cadastrados.</p>
-    {% endif %}
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block titulo %}
+Listar produtos
+{% endblock %}
+
+{% block titulo_pagina %}
+Produtos
+{% endblock %}
+
+{% block conteudo %}
+
+    {% if produtos %}
+    <ul>
+        {% for produto in produtos %}
+            <li>
+                <strong>{{ produto.nome }} - {{ produto.fornecedor }}</strong>
+                <a href="{% url 'produto:detalhes' pk=produto.id %}">
+                    Detalhes
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Não há produtos cadastrados.</p>
+    {% endif %}
+{% endblock %}

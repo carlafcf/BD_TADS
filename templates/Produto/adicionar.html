@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Adicionar produtos
+{% endblock %}
+
+{% block titulo_pagina %}
+Cadastrar
+{% endblock %}
+
+{% block conteudo %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Cadastrar">
+    </form>
+
+{% endblock %}

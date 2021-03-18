@@ -17,4 +17,3 @@ class Produto(models.Model):
     
     class Meta:
         ordering = ['nome']
-
