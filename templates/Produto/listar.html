@@ -10,13 +10,27 @@ Produtos
 
 {% block conteudo %}
 
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
     {% if produtos %}
     <ul>
         {% for produto in produtos %}
             <li>
-                <strong>{{ produto.nome }} - {{ produto.fornecedor }}</strong>
-                <a href="{% url 'produto:detalhes' pk=produto.id %}">
-                    Detalhes
+                <strong>{{produto.id}}: {{ produto.nome }} - {{ produto.fornecedor }}</strong>
+                <a href="{% url 'produto:detalhes' pk=produto.id %}" style="text-decoration:none">
+                    <i class="fas fa-search" style="color:blue"></i>
+                </a>
+                <a href="{% url 'produto:editar_uv' pk=produto.id %}" style="text-decoration:none">
+                    <i class="fas fa-pencil" style="color:green"></i>
+                </a>
+                <a href="{% url 'produto:deletar' pk=produto.id %}" style="text-decoration:none">
+                    <i class="fas fa-trash" style="color:red"></i>
                 </a>
             </li>
         {% endfor %}

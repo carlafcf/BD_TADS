@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Editar produtos
+{% endblock %}
+
+{% block titulo_pagina %}
+Editar com UpdateView
+{% endblock %}
+
+{% block conteudo %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Atualizar">
+    </form>
+
+{% endblock %}

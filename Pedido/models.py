@@ -25,6 +25,6 @@ class Pedido(models.Model):
         ordering = ['data', 'status']
 
 class Elementos(models.Model):
-    pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
-    produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
+    pedido = models.ForeignKey(Pedido, on_delete=models.RESTRICT)
+    produto = models.ForeignKey(Produto, on_delete=models.RESTRICT)
     quantidade = models.PositiveIntegerField()

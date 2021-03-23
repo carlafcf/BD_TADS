@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Confirmação remoção
+{% endblock %}
+
+{% block titulo_pagina %}
+DeleteView - Você tem certeza que deseja remover este produto?
+{% endblock %}
+
+{% block conteudo %}
+
+    <form method="post">
+        {% csrf_token %}
+        <p><strong>Nome: </strong> {{object.nome}} </p>
+        <p><strong>Descrição: </strong> {{object.descricao}} </p>
+        <p><strong>Fornecedor: </strong> {{object.fornecedor}} </p>
+        <p><strong>Valor unitário: </strong> {{object.valor_unitario}} </p>
+        <input type="submit" value="Confirmar">
+    </form>
+
+{% endblock %}

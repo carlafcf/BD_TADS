@@ -10,7 +10,7 @@ class Produto(models.Model):
     quantidade_maxima = models.PositiveIntegerField()
     valor_unitario = models.DecimalField(max_digits=10, decimal_places=2)
     no_item = models.PositiveIntegerField(default=0)
-    licitacao = models.ForeignKey(Licitacao, on_delete=models.CASCADE, null=True)
+    licitacao = models.ForeignKey(Licitacao, on_delete=models.RESTRICT, null=True)
 
     def __str__(self):
         return self.nome + " - " + self.fornecedor
